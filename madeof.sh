@@ -24,7 +24,7 @@ function can-be-made-of-nil {
 
 function can-be-made-of { can-be-made-of-nil "$1"\! "$2"\!; }
 
-function words-from-set-stdin {
+function words-from-set {
     wordsize="$1"
     letterset="$2"
     IFS=$'\n'
