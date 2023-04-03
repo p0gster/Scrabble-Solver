@@ -29,11 +29,24 @@ function words-from-set {
     letterset="$2"
     IFS=$'\n'
 
-    for x in $(cat /usr/share/dict/british-english| grep -E '^['"$letterset"']+$'| grep -E '^.{'"$wordsize"'}$' ) ;do
+    for x in $(cat /usr/share/dict/british-english|tr A-Z a-z| grep -E '^['"$letterset"']+$'| grep -E '^.{'"$wordsize"'}$' ) ;do
 	if [ "$(can-be-made-of "$x" "$letterset")" = "t" ];then
 	    echo "$x"
 	fi
     done
+}
+
+function words-from-set-stdin {
+    letterset="$1"
+
+    for x in $(cat -) ;do
+	if [ "$(can-be-made-of "$x" "$letterset")" = "t" ];then
+	    echo "$x"
+	fi
+    done
+
+    IFS=''
+
 }
 
 #$(cat /usr/share/dict/british-english| grep -E '^['"$letterset"']+$'| grep -E '^.{'"$wordsize"'}$' )
