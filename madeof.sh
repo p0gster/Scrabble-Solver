@@ -4,6 +4,7 @@ function reststr { echo "$1" | cut -c 2-; }
 function begstr { echo "$1" | cut -c -1; }
 function ins { echo "$2"| grep "$1"; }
 function remove-first { echo "$2" | sed 's/'"$1"'//'; }
+dict=/usr/share/dict/words
 
 function can-be-made-of-nil {
     arg="$1"
@@ -29,7 +30,7 @@ function words-from-set {
     letterset="$2"
     IFS=$'\n'
 
-    for x in $(cat /usr/share/dict/british-english|tr A-Z a-z| grep -E '^['"$letterset"']+$'| grep -E '^.{'"$wordsize"'}$' ) ;do
+    for x in $(cat "$dict"|tr A-Z a-z| grep -E '^['"$letterset"']+$'| grep -E '^.{'"$wordsize"'}$' ) ;do
 	if [ "$(can-be-made-of "$x" "$letterset")" = "t" ];then
 	    echo "$x"
 	fi
@@ -49,5 +50,5 @@ function words-from-set-stdin {
 
 }
 
-#$(cat /usr/share/dict/british-english| grep -E '^['"$letterset"']+$'| grep -E '^.{'"$wordsize"'}$' )
+#$(cat "$dict"| grep -E '^['"$letterset"']+$'| grep -E '^.{'"$wordsize"'}$' )
 words-from-set "$1" "$2"
