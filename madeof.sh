@@ -4,7 +4,7 @@ function reststr { echo "$1" | cut -c 2-; }
 function begstr { echo "$1" | cut -c -1; }
 function ins { echo "$2"| grep "$1"; }
 function remove-first { echo "$2" | sed 's/'"$1"'//'; }
-dict=/usr/share/dict/words
+dict=words.txt
 
 function can-be-made-of-nil {
     arg="$1"
@@ -51,4 +51,8 @@ function words-from-set-stdin {
 }
 
 #$(cat "$dict"| grep -E '^['"$letterset"']+$'| grep -E '^.{'"$wordsize"'}$' )
+#usage
+# argument 1: size of word required as a number
+# argument 2: collection of letters available
+
 words-from-set "$1" "$2"
