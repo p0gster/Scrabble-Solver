@@ -2,9 +2,9 @@ Given a collection of letters, determines what english words of a given length c
 
 The given dictionary file can be modified by editing the dict variable in the program file madeof.sh.
 
-usage:
+<h1>usage:</h1>
 Go into the directory of the program and run:
 bash madeof.sh wordlength letters
 
-example
-bash made-of.sh 5 abcdefg
+<h1>example:</h1>
+made-of.sh 5 abcdefg

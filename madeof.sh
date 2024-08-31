@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 function nilstr { echo "$1"\!; }
 function isnil { [ "$1" = \! ]; }
 function reststr { echo "$1" | cut -c 2-; }
