@@ -3,7 +3,13 @@
 
 <h1>usage:</h1>
 <p>Go into the directory of the program and run:</p>
+
+```
 		madeof.sh wordlength letters
+```
 
 <h1>example:</h1>
+
+```
 		made-of.sh 5 abcdefg
+```
